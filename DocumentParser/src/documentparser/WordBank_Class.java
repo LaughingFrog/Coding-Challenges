@@ -215,7 +215,7 @@ public class WordBank_Class{
                 try{
                     while(true){
                         String sent = srchScan.next();
-                        System.out.println(sent);
+                     
                         if (sentenceSearch(sent,highest)){
                             lastSentence = sent;
                         }

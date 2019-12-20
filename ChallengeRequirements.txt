@@ -1,0 +1,29 @@
+Christian,
+
+ 
+
+The details for the code challenge are below.
+
+ 
+
+You will have until 11 am EST on Friday (12/20) to complete it.
+
+ 
+
+Please respond to this email, so I know you have received the challenge. Let me know if you have any questions.
+
+ 
+
+    The application needs to be written in Java
+    You will be required to read a file we provide (attached) and do the following:
+        Give a total word count
+        Identify the top 10 words used and display them in sorted order
+        Pull the last sentence on the file that contains the most used word
+    Your output can be written directly to the console window or a log
+    Please push to GitHub and provide a link upon completion
+
+ 
+
+All the best,
+
+Ben Walton

@@ -39,6 +39,7 @@ public class DocumentParser
             }
         }
         
+        System.out.println("Last Sentence with most frequent word: "+wordBank.lastSentence);
         
         }
     

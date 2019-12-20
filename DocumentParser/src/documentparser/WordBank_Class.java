@@ -155,6 +155,25 @@ public class WordBank_Class{
     }
 
     
+     /* sentenceSearch(String stringToSearch, String searchString):
+        Takes a sentence and a word and returns true if the word is present in the sentence, else false.
+
+       Returns: boolean 
+     */
+    public boolean sentenceSearch(String stringToSearch, String searchString){
+        
+        String upperSentence = stringToSearch.toUpperCase();
+        String upperWord = searchString.toUpperCase();
+        
+        String[] parse = upperSentence.split("\\s+");
+
+        for(String word: parse){
+            word = word.replaceAll("[^\\w]","");
+            if (word.equals(upperWord)) {return true;};
+        }
+        
+        return false;
+    }
    
     /* FillFromFile():
         Takes in a string representing a filepath, then attempst to open that file. 
@@ -177,6 +196,7 @@ public class WordBank_Class{
             // Throws NoSuchElementException upon no more sentences
             try{
                 sentence = fileScan.next();
+                System.out.println(sentence);
                 sentenceBank.add(sentence);
                 //split sentence whitespace 
                 String[] parse = sentence.split("\\s+");
@@ -192,7 +212,9 @@ public class WordBank_Class{
                 organize();
                 String highest = bank.get(0).getKey();
                 for(String sent: sentenceBank){
-                    
+                    if (sentenceSearch(sent,highest)){
+                        lastSentence = sent;
+                    }
                 }
                 return;
             }

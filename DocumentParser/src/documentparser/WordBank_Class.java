@@ -196,8 +196,6 @@ public class WordBank_Class{
             // Throws NoSuchElementException upon no more sentences
             try{
                 sentence = fileScan.next();
-                System.out.println(sentence);
-                sentenceBank.add(sentence);
                 //split sentence whitespace 
                 String[] parse = sentence.split("\\s+");
 
@@ -207,15 +205,25 @@ public class WordBank_Class{
                     word = word.replaceAll("[^\\w]","");
                     addWord(word);
                 }
-            } catch( NoSuchElementException ex){
+            } catch( NoSuchElementException exSentenceRead){
                 //Organize and return;
                 organize();
                 String highest = bank.get(0).getKey();
-                for(String sent: sentenceBank){
-                    if (sentenceSearch(sent,highest)){
-                        lastSentence = sent;
+                Scanner srchScan = new Scanner(new File(inputFile));
+                srchScan.useDelimiter("[.?!]");
+                
+                try{
+                    while(true){
+                        String sent = srchScan.next();
+                        System.out.println(sent);
+                        if (sentenceSearch(sent,highest)){
+                            lastSentence = sent;
+                        }
                     }
+                }catch( NoSuchElementException exSentenceSearch){
+                    
                 }
+
                 return;
             }
         }
